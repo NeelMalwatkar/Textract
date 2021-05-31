@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Textract</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../static/img/favicon.png" rel="icon">
+  <link href="../static/img/favicon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Vendor CSS Files -->
+  <!-- <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+  <!-- Template Main CSS File -->
+  <!-- <link href="../static/css/style.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <!-- =======================================================
+  * Template Name: eStartup - v4.2.0
+  * Template URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div id="logo">
+        <h1><a href="index.html"><span>T</span>extract</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#get-started">How to use</a></li>
+          <li><a class="nav-link scrollto" href="#extract">Extract Text from Image</a></li>
+
+
+          <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Intro Section ======= -->
+  <section id="hero">
+    <div class="hero-container" data-aos="fade-in">
+      <br><br><br>
+      <h1>WELCOME TO TEXTRACT</h1>
+      <img src="../static/img/hero-img.png" alt="Hero Imgs" data-aos="zoom-out" data-aos-delay="100">
+      <a href="#extract" class="btn-get-started scrollto">Get Started</a>
+    </div>
+    
+  </section><!-- End Intro Section -->
+  <br>
+  
+  <main id="main">
+
+    <!-- ======= Get Started Section ======= -->
+    <section id="get-started" class="padd-section text-center" style="background-color: #72c55e;">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="feature-block">
+
+              <img src="../static/img/svg/1.svg" alt="img">
+              <h4>Upload</h4>
+              <p>Click on choose file to upload an image</p>
+
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="feature-block">
+
+              <img src="../static/img/svg/3.svg" alt="img">
+              <h4>Extraction</h4>
+              <p>Extracted Text will be shown in the textarea</p>
+
+
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="feature-block">
+
+              <img src="../static/img/svg/4.svg" alt="img">
+              <h4>Download</h4>
+              <p>in .PDF, .DOCX or .TXT format</p>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- End Get Started Section -->
+
+    <!-- ======= extraction section ======= -->
+    <section id="extract">
+      <div class="gc">
+        <div data-aos="zoom-in" data-aos-delay="100" style="align-items: center;">
+          <h3>Upload Image</h3><br>
+          <form method=post enctype=multipart/form-data>
+            <div class="input-group">
+              <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+                aria-label="Upload" name=image accept="image/*" onchange="loadFile(event)">
+              <input type=submit style="background-color: #e9e9ea; width: 5px;" class="form-control"
+                id="inputGroupFile04" aria-label="Upload" value="Extract Text from the Image">
+          </form>
+        </div>
+        <br>
+        <textarea style="align-self: center;" data-aos="zoom-in" data-aos-delay="100" id="content" name="w3review"
+          rows="10" cols="100" placeholder="Extracted text will be shown here...">
+          {{prediction}}
+          </textarea><br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn" id="cmd"><i class="fa fa-file-pdf-o" style="color: red; font-size:20px;"></i> Download PDF</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn" id="btn-export" onclick="exportHTML();"><i class="fa fa-file-word-o"
+            style="color: rgb(0, 153, 255);  font-size:20px;"></i> Download Word</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn" onclick="saveTextAsFile()"><i class="fa fa-file-text-o"
+            style="color: black;  font-size:20px;"></i> Download Text</button>
+      </div>
+
+      <div data-aos="fade-left" data-aos-delay="100" style="background-color: #e9e9ea; border: black;">
+        <div style="background-color: #fff;">
+          <h3 style="background-color: #fff;">Image Preview</h3><br>
+        </div>
+        <img style="height: 400px; width: 400px; padding-top: 0;" id="output" />
+      </div>
+      </div><!-- End Extraction Section -->
+
+    </section>
+    <!-- ======= Footer ======= -->
+    <footer class="footer">
+
+      <div class="copyrights">
+        <div class="container">
+          <p style="color: #fff;">&copy; Copyrights Textract. All rights reserved.</p>
+          <div class="credits">
+            <i style="color: #fff;">Designed by </i><a href="https://www.linkedin.com/in/neelmalwatkar/">Neel Malwatkar</a>
+          </div>
+        </div>
+      </div>
+
+    </footer><!-- End  Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{{url_for('static', filename='vendor/aos/aos.js') }}"></script>
+    <script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
+    <script src="{{url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
+    <script src="{{url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
+
+    <!-- Template Main JS File -->
+    <script type=text/javascript src="{{
+    url_for('static', filename='js/main.js') }}"></script>
+
+    <!--To preview image-->
+    <script>
+      var loadFile = function (event) {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = function () {
+          URL.revokeObjectURL(output.src) // free memory
+        }
+      };
+    </script>
+    <!--To preview image-->
+
+
+    <!--To scroll-->
+    {% if scrollToAnchor %}
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.location.hash = '#{{ scrollToAnchor }}';
+      });
+    </script>
+    {% endif %}
+    <!--To scroll-->
+
+    <!--To download PDF-->
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js">
+    </script>
+    <script>
+
+      var doc = new jsPDF();
+      $('#cmd').click(function () {
+        var strArr = doc.splitTextToSize($('#content').val(), 180)
+        doc.text(strArr, 20, 20);
+        doc.save('ExtractedText.pdf');
+      });
+    </script>
+    <!--To download PDF-->
+
+    <!--To download WORD-->
+    <script>
+      function exportHTML() {
+        var header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' " +
+          "xmlns:w='urn:schemas-microsoft-com:office:word' " +
+          "xmlns='http://www.w3.org/TR/REC-html40'>" +
+          "<head><meta charset='utf-8'><title>Export HTML to Word Document with JavaScript</title></head><body>";
+        var footer = "</body></html>";
+        var sourceHTML = header + document.getElementById("content").innerHTML + footer;
+
+        var source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
+        var fileDownload = document.createElement("a");
+        document.body.appendChild(fileDownload);
+        fileDownload.href = source;
+        fileDownload.download = 'ExtractedText.doc';
+        fileDownload.click();
+        document.body.removeChild(fileDownload);
+      }
+    </script>
+    <!--To download WORD-->
+
+
+    <!--To download TEXT-->
+    <script>
+      function saveTextAsFile() {
+        var textToSave = document.getElementById("content").value;
+        var textToSaveAsBlob = new Blob([textToSave], { type: "text/plain" });
+        var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+        var fileNameToSaveAs = 'ExtractedText.txt'
+
+        var downloadLink = document.createElement("a");
+        downloadLink.download = fileNameToSaveAs;
+        downloadLink.innerHTML = "Download File";
+        downloadLink.href = textToSaveAsURL;
+        downloadLink.onclick = destroyClickedElement;
+        downloadLink.style.display = "none";
+        document.body.appendChild(downloadLink);
+
+        downloadLink.click();
+      }
+
+      function destroyClickedElement(event) {
+        document.body.removeChild(event.target);
+      }
+    </script>
+    <script>
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            $('#blah')
+              .attr('src', e.target.result)
+              .width(150)
+              .height(200);
+          };
+
+          reader.readAsDataURL(input.files[0]);
+        }
+      }</script>
+
+
+    <!--To download TEXT-->
+
+</body>
+
+</html>
